@@ -39,7 +39,7 @@ namespace NodePropertyPalette
         /// <summary>
         /// Whether the node is built-into Dynamo or not (either hosted or imported).
         /// </summary>
-        public bool IsBuiltIn
+        public NodeBuiltInStatus IsBuiltIn
         {
             get
             {
@@ -48,9 +48,9 @@ namespace NodePropertyPalette
                 {
                     // And that they don't use any of our node namespaces
                     var mangledName = (NodeModel as DSFunctionBase).Controller.MangledName;
-                    return KnownDynamoNodeNamespaces.Any(ns => mangledName.StartsWith(ns));
+                    return KnownDynamoNodeNamespaces.Any(ns => mangledName.StartsWith(ns)) ? NodeBuiltInStatus.Yes : NodeBuiltInStatus.No;
                 }
-                return true;
+                return NodeBuiltInStatus.Yes;
             }
         }
 

@@ -308,10 +308,6 @@
             RowDetailsVisibilityMode="Collapsed"
             HorizontalAlignment="Stretch">
 
-                <DataGrid.Resources>
-                    <local:BooleanToTextConverter x:Key="BoolToText"/>
-                </DataGrid.Resources>
-
                 <DataGrid.GroupStyle>
                     <GroupStyle>
                         <GroupStyle.HeaderTemplate>
@@ -362,8 +358,7 @@
                     </DataGridTextColumn>
 
                     <!-- Built-In -->
-                    <DataGridTextColumn Header="Built-in" Binding="{Binding IsBuiltIn, Converter={StaticResource ResourceKey=BoolToText}}"
-                                        Foreground="#aaaaaa" IsReadOnly="True" Width="Auto" MinWidth="30">
+                    <DataGridTextColumn Header="Built-in" Binding="{Binding IsBuiltIn}" Foreground="#aaaaaa" IsReadOnly="True" Width="Auto" MinWidth="30">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="VerticalAlignment" Value="Center" />
